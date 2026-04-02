@@ -2,7 +2,7 @@ provider "aws" {
   region = "ap-south-1"
 }
 
-resource "aws_iam_role" "cbz_eks_role" {
+resource "aws_iam_role" "cbz_eks_role123" {
   name = "cbz-eks-role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -19,7 +19,7 @@ resource "aws_iam_role" "cbz_eks_role" {
 
 resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-  role       = aws_iam_role.cbz_eks_role.name
+  role       = aws_iam_role.cbz_eks_role123.name
 }
 
 data "aws_vpc" "my_vpc" {
@@ -35,7 +35,7 @@ data "aws_subnets" "subnet_ids" {
 
 resource "aws_eks_cluster" "my_cluster" {
   name     = "my-cluster"
-  role_arn = aws_iam_role.cbz_eks_role.arn
+  role_arn = aws_iam_role.cbz_eks_role123.arn
 
   vpc_config {
     subnet_ids = data.aws_subnets.subnet_ids.ids
