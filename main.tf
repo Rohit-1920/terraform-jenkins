@@ -33,8 +33,8 @@ data "aws_subnets" "subnet_ids" {
   }
 }
 
-resource "aws_eks_cluster" "my_cluster" {
-  name     = "my-cluster"
+resource "aws_eks_cluster" "b35" {
+  name     = "b35"
   role_arn = aws_iam_role.cbz_eks_role123.arn
 
   vpc_config {
