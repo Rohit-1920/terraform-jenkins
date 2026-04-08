@@ -1,4 +1,4 @@
-```hcl
+
 provider "aws" {
   region     = "us-east-1"  # Replace with your desired AWS region
 }
@@ -172,4 +172,4 @@ resource "aws_eks_node_group" "my_node_group" {
     aws_iam_role_policy_attachment.node_AmazonEKS_CNI_Policy,
   ]
 }
-```
+
