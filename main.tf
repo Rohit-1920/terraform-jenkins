@@ -2,7 +2,7 @@ provider "aws" {
     region = "ap-south-1"
 }
 
-resource "aws_iam_role" "cluster" {
+resource "aws_iam_role" "cluster1" {
   name = "eks-cluster-example"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -23,7 +23,7 @@ resource "aws_iam_role" "cluster" {
 
 resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-  role       = aws_iam_role.cluster.name
+  role       = aws_iam_role.cluster1.name
 }
 
 
@@ -37,9 +37,9 @@ data "aws_subnets" "default"{
     }
 }
 
-resource "aws_eks_cluster" "cluster" {
-    name = "cluster"
-    role_arn = aws_iam_role.cluster.arn
+resource "aws_eks_cluster" "cluster1" {
+    name = "cluster1"
+    role_arn = aws_iam_role.cluster1.arn
     access_config {
         authentication_mode = "API"
     }
