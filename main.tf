@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_iam_role" "cluster1" {
-  name = "eks-cluster-example"
+  name = "eks-cluster-example123"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
